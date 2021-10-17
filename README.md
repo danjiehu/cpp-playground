@@ -3,8 +3,10 @@ This repo is used to document the learning about c++.
 
 ## running c++
 ```
-g++ MyProgram.cpp -o MyProgram
-./MyProgram
+g++ hello.cpp -o hello
+```
+```
+./hello
 ```
 
 ## references
