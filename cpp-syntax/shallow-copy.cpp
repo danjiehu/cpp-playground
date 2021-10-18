@@ -3,7 +3,6 @@ in shallow copy, variables in heap will NOT create a new copy.
 */
 
 #include <iostream>
-#include <string>
 using namespace std;
 
 class box
@@ -35,18 +34,18 @@ int main()
 
     b1.set_dimensions(1, 2, 3);
     b1.show_data();
-    cout << "end of b1" << endl;
+    cout << "end of b1: original" << endl;
 
-    //default copy constructor;
+    //automatic copy constructor;
     box b2 = b1;
     b2.show_data();
-    cout << "end of b2" << endl;
+    cout << "end of b2: copies b1" << endl;
 
-    //assigment operator;
+    //default assigment operator;
     box b3;
     b3 = b1;
     b3.show_data();
-    cout << "end of b3" << endl;
+    cout << "end of b3: assigned b1" << endl;
 
     return 0;
 }
