@@ -31,9 +31,10 @@ int main()
 
     b1.set_dimensions(1, 2, 3);
     b1.show_data();
+    cout
 
-    //default copy constructor;
-    box b2 = b1;
+        //default copy constructor;
+        box b2 = b1;
     b2.show_data();
 
     //assigment operator;
