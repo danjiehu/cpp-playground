@@ -3,6 +3,7 @@
 
 using namespace std;
 
+// multiplication
 int mul(int n, int m)
 {
     if (n == 1)
@@ -19,6 +20,7 @@ int mul(int n, int m)
     }
 };
 
+// n factorial
 int fac(int n)
 {
     if (n == 1)
@@ -37,9 +39,7 @@ int fac(int n)
 
 int main()
 {
-    // multiplication
-    mul(1, 2);
 
-    // n factorial
+    mul(3, 4);
     fac(5);
 }
