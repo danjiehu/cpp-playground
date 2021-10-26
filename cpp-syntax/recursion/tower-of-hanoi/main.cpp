@@ -1,8 +1,7 @@
 #include <iostream>
 #include <vector>
 
-using std::cout;
-using std::endl;
+using namespace std;
 
 class disk
 {
