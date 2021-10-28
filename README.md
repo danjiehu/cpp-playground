@@ -3,7 +3,7 @@ This repo is used to document the learning of c++.
 
 ## running c++
 ```
-g++ hello.cpp -o hello
+g++ -std=c++11 hello.cpp -o hello
 ```
 ```
 ./hello
