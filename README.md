@@ -24,7 +24,7 @@ using std::endl;
 * namespace `cube`
 * class & struct `class MyClass`
 * variables & struct member variable `std::string table_name` `int num`
-* class member variable (meaning /*99%*/ it's private) `std::string table_name_` `int num_`
+* class member variable (meaning *99%* it's private) `std::string table_name_` `int num_`
 * function `void DoSometingImportant(){}`
 * TODO
 `// TODO(Zeke) change this to use relations.
