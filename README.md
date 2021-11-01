@@ -9,6 +9,27 @@ g++ -std=c++11 hello.cpp -o hello
 ./hello
 ```
 
+## rules
+### DON'Ts
+* use `using namespace ...` in header file
+* `using namespace std`
+### DOs
+* the using keyword
+```
+using std::cout;
+using std::endl;
+```
+### naming
+* file names `my-useful-class.ccp`
+* namespace `cube`
+* class & struct `class MyClass`
+* variables & struct member variable `std::string a_local_variable` `int num`
+* class member variable (meaning /*99%*/ it's private) `std::string table_name_`
+* function `void DoSometingImportant(){}`
+* TODO
+`// TODO(Zeke) change this to use relations.
+// TODO(bug 12345): remove the "Last visitors" feature.`
+
 ## references
 * clang format setup in VS code https://clang.llvm.org/docs/ClangFormat.html
-
+* Google CPP style guide https://google.github.io/styleguide/cppguide.html#General_Naming_Rules
