@@ -3,10 +3,10 @@
 #include <vector>
 #include <iostream> 
 
-Cube a = Cube(1);
-Cube b = Cube(2);
-Cube c = Cube(3);
-Cube d = Cube(4);
+Cube(1);
+Cube(2);
+Cube(3);
+Cube(4);
 
 std::vector<Cube> stack;
 stack.push_back(d);
