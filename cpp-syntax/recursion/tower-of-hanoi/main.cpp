@@ -30,14 +30,27 @@ struct Game {
         stack_source.push_back(c2);
         stack_source.push_back(c1);
     };
+
+    void move(std::vector<Cube>& start, std::vector<Cube>& end)
+    {
+        Cube& top_cube = start.back();
+        start.pop_back();
+        end.push_back(top_cube);
+    }
+
+    void solve()
+    {
+    }
 };
 
+// overload  << with printing cube
 std::ostream& operator<<(std::ostream& stream, const Cube& cube)
 {
     stream << cube.m_length;
     return stream;
 };
 
+// overload << with printing game
 std::ostream& operator<<(std::ostream& stream, const Game& game)
 {
     stream << "[source] ";
@@ -65,6 +78,10 @@ int main()
     Game g;
 
     cout << "initial game state: " << endl;
+    cout << g << endl;
+
+    g.move(g.stack_source, g.stack_target);
+    cout << "testing move: " << endl;
     cout << g << endl;
 
     return 0;
