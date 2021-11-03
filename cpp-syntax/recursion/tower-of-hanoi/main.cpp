@@ -2,6 +2,9 @@
 #include <iostream>
 #include <vector>
 
+using std::cout;
+using std::endl;
+
 struct Cube {
     int m_length;
 
@@ -35,29 +38,34 @@ std::ostream& operator<<(std::ostream& stream, const Cube& cube)
     return stream;
 };
 
-void print(std::vector<Cube> const& a)
+std::ostream& operator<<(std::ostream& stream, const Game& game)
 {
-    std::cout << "The vector elements are : ";
+    stream << "[source] ";
+    for (int i = 0; i < game.stack_source.size(); i++) {
+        stream << game.stack_source[i] << " ";
+    }
+    stream << endl;
 
-    for (int i = 0; i < a.size(); i++)
-        std::cout << a[i] << ' ';
-}
+    stream << "[spare] ";
+    for (int i = 0; i < game.stack_spare.size(); i++) {
+        stream << game.stack_spare[i] << " ";
+    }
+    stream << endl;
 
-// std::ostream& operator<<(std::ostream& stream, const Game& game)
-// {
-//     for (int i = 0; i < game.stack_source.size(); i++) {
-//         stream << game.stack_source[i];
-//     }
+    stream << "[target] ";
+    for (int i = 0; i < game.stack_target.size(); i++) {
+        stream << game.stack_target[i] << " ";
+    }
 
-//     return stream;
-// };
+    return stream;
+};
 
 int main()
 {
     Game g;
 
-    std::cout << "initial game state: " << std::endl;
-    print(g.stack_source);
+    cout << "initial game state: " << endl;
+    cout << g << endl;
 
     return 0;
 };
