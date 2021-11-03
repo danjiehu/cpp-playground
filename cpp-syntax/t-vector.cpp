@@ -1,6 +1,7 @@
 /*
     this demo contains: 
-    1. 
+    1. how to create std::vector & basic use of .push_back() and .size()
+    2. how to print all vector content and those of custmized types
 */
 #include <iostream>
 #include <vector>
