@@ -49,6 +49,10 @@ int main()
     cout << cube_stack[0] << endl;
     cout << cube_stack[1] << endl;
     cout << cube_stack[2] << endl;
+    cout << "last vector content: " << cube_stack.back() << endl;
+    cout << "last vector content: " << *(cube_stack.end() - 1) << endl; // alternatively (.end() returns iterator, not really a pointer)
+    cout << "first vector content: " << cube_stack.front() << endl;
+    cout << "first vector content: " << *cube_stack.begin() << endl; // alternatively
 
     //below - printing cube stack exmaple
     cout << "cube stack is: " << cube_stack << endl;
