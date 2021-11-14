@@ -26,7 +26,7 @@ public:
 
     ScoreCardB(std::string name, int score)
         : m_name(name)
-        , m_score(score)
+        , m_score(score + score)
     {
     }
 
