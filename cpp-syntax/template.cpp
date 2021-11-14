@@ -1,3 +1,4 @@
+//!template is "how to create code" specified for the compiler, compiler can then automatically create code for you basing on your usage of them
 #include <iostream>
 #include <string>
 
@@ -16,8 +17,8 @@
 //     std::cout << value << std::endl;
 // }
 
-//!template is "how to create methods" specified for the compiler, compiler can then automatically create the methods for you basing on your usage of them
-//!templates are evaluated at compile time
+//!templates are evaluated at compile time, unlike regular code that is evaluated at runtime
+//!use templates when you want the compiler to write code for you based on your rules (warning: overusing template will make your code harder to read for you and others)
 template <typename T> // T is called "template parameter"
 void Print(T value)
 {
@@ -62,7 +63,6 @@ int main()
     //! start of example two: creating stack arrays by creating customized class
     Array<5> array; // 5 is the template argument
     std::cout << array.GetSize() << std::endl;
-    std::cin.get();
 
     ArrayT<std::string, 50> array2;
     std::cout << array2.GetSize() << std::endl;
