@@ -3,8 +3,8 @@ This repo is used to document the learning of c++
 
 ## running c+
 * with vscode Code Runner extension
- * Ctrl + Opt + N (to run)
- * Ctrl + Opt + M (to stop)
+ - Ctrl + Opt + N (to run)
+ - Ctrl + Opt + M (to stop)
 * alternatively,
 ```
 g++ -std=c++11 hello.cpp -o hello
