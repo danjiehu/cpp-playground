@@ -1,3 +1,5 @@
+// inheritance is a way for us to extend an existing class by providing new functionalities
+
 #include <iostream>
 
 class Entity {
@@ -37,11 +39,11 @@ int main()
 {
     Player player;
 
-    // ex1. Player type accessing its base type public variable and functions
+    // ex1. Player type accessing Entity's public variable and functions
     std::cout << player.X << std::endl;
     player.Move(1, 1);
 
-    // ex2. passing Player type, even though PrintLocation() accepts Entity type
+    // ex2. passing Player type as an argument, even though PrintLocation() accepts Entity type - because Player type as an inheritance is guaranteed to have those members
     PrintLocation(player);
 
     std::cin.get();
