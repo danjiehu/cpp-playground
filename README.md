@@ -13,8 +13,11 @@ This repo is used to document the learning of c++
 ```
 g++ hello.cpp -o hello
 ./hello
+
 g++ -std=c++11 hello.cpp -o hello
 ./hello
+
+// compile with linked .cpp files
 g++ -o myprogram class1.cpp class2.cpp class3.cpp main.cpp
 ./main
 ```
