@@ -1,1 +1,7 @@
-// this file is to demostrate how to debug c++ in vscode
+#include "log.h"
+#include <iostream>
+
+void Log(std::string message)
+{
+    std::cout << message << std::endl;
+}
