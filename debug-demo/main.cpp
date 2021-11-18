@@ -1,8 +1,9 @@
 #include "log.h"
 #include <iostream>
+#include <string>
 
 int main()
 {
-    Log("Hello World");
+    Log("hello world!");
     std::cin.get();
 }
