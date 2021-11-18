@@ -1,9 +1,12 @@
+This repo is created to document how to set up and utilize debugging for C++ in Visual Studio Code.
+
 # debug
 
 * `Run and Debug` button on left side menu
 * setting: `g++ - build and bebug active file`
 * click `the green Play button` to start a debugging session
-* break points: where you want to
+* break points (the red dot): where you want to the program to pause - the debugger will execute code until the line **BEFORE** where you set the debugger
+* the yellow arrow: points to the line that is ABOUT TO be executed, but NOT yet
 * set WATCH variables
 * **view address**
 * menu buttons
@@ -12,7 +15,7 @@
   * `Step Into`
   * `Step Out`
   * `Restart`
-  * `Stop` to end a debug session
+  * `Stop`
 * MAKE SURE
   * the active file is the one you want to run and debug
 
@@ -47,7 +50,8 @@
                 "isDefault": true
             }
         }
-    ]}
+      ]
+    }
     ```
 
 # ref
