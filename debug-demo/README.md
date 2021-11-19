@@ -2,9 +2,10 @@ This repo is created to demostrate how to set up and utilize debugging for C++ i
 
 # debug
 
-* `Run and Debug` button on left side menu
+* select on Run and Debug on left side menu
+* select on DEBUG CONSOLE on bottom panel
 * setting: `g++ - build and bebug active file`
-* click the green play button to start a debugging session and view debug console for code execution result
+* click the green play button to start a debugging session
 * break points (the red dot): run all the code up until right BEFORE the line of breakpoint (the line of breakpoint is not executed)
 * set WATCH variables
 * **view memory address**
@@ -13,6 +14,7 @@ This repo is created to demostrate how to set up and utilize debugging for C++ i
   * view variable memory address, simply type `&a` in DEBUG CONSOLE
   * view variable memory in HEX, type `-exec x &a` in DEBUG CONSOLE
     * `-exec` is to indicate that what comes after is a GDB command
+    * to track continuous changes, log `-exec x &a` to WATCH
 * **the yellow arrow points to the line that is about to be executed, but NOT YET**
 * menu buttons (press Fn to activate function keys)
   * `Continue`***F5*** - execute a block of code: from the yellow-arrow line (included) to the line (included) right before the next break point
@@ -70,6 +72,10 @@ This repo is created to demostrate how to set up and utilize debugging for C++ i
 
 # ref
 
-* https://stackoverflow.com/questions/59474537/code-runner-configuration-for-running-multiple-cpp-classes-in-vscode
-* https://stackoverflow.com/questions/47665886/vs-code-will-not-build-c-programs-with-multiple-ccp-source-files
+* code runner config for building multiple files https://stackoverflow.com/questions/59474537/code-runner-configuration-for-running-multiple-cpp-classes-in-vscode
+* build cpp with mutiple files https://stackoverflow.com/questions/47665886/vs-code-will-not-build-c-programs-with-multiple-ccp-source-files
 * Cherno: https://www.youtube.com/watch?v=0ebzPwixrJA
+* ASCII Table: https://www.sciencebuddies.org/science-fair-projects/references/ascii-table
+* Hex Decimal converter https://www.binaryhexconverter.com/decimal-to-hex-converter
+* Processor Register and CPU components https://www.bbc.co.uk/bitesize/guides/z7qqmsg/revision/4
+* GDB: the GNU project debugger https://www.gnu.org/software/gdb/
