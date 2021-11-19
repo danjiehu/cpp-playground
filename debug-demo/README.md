@@ -14,7 +14,7 @@ This repo is created to demostrate how to set up and utilize debugging for C++ i
   * `Pause`*F6* - pause the running program, the yellow arrow will then pop up to indicate where the program is now
   * `Step Over`***F10*** - execute the yellow-arrow line and only that line
   * `Step Into`***F11*** - go into what's really being executed on the yellow-arrow line
-  * `Step Out`*shift+F11* - go to what called the yellow-arrow line
+  * `Step Out`*shift+F11* - go to what called the yellow-arrow line (can be used to go back to where you hit Step Into)
   * `Restart`
   * `Stop`
 * MAKE SURE
