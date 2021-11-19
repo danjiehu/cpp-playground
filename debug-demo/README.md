@@ -79,4 +79,4 @@ This repo is created to demostrate how to set up and utilize debugging for C++ i
 * Hex Decimal converter https://www.binaryhexconverter.com/decimal-to-hex-converter
 * Processor Register and CPU components https://www.bbc.co.uk/bitesize/guides/z7qqmsg/revision/4
 * GDB: the GNU project debugger https://www.gnu.org/software/gdb/
-* bit, byte, 32-bit vs. 64-bit CPU explained https://www.youtube.com/watch?v=s2aB13sOBi8
+* bit, byte, 32-bit vs. 64-bit CPU, register, clock cycle, data memory bit allocation explained https://www.youtube.com/watch?v=s2aB13sOBi8
