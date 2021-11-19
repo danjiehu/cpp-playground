@@ -7,18 +7,24 @@ This repo is created to demostrate how to set up and utilize debugging for C++ i
 * click the green play button to start a debugging session and view debug console for code execution result
 * break points (the red dot): run all the code up until right BEFORE the line of breakpoint (the line of breakpoint is not executed)
 * set WATCH variables
-* **view address**
+* **view memory address**
+  * there's no way to dispay full program memory in HEX in VS Code mac like it could in Visual Studio, and Visual Studio mac doesn't support C++ yet
+  * view variable value, simply type variable name `a` in BEBUG CONSOLE
+  * view variable memory address, simply type `&a` in DEBUG CONSOLE
+  * view variable memory in HEX, type `-exec x &a` in DEBUG CONSOLE
+    * `-exec` is to indicate that what comes after is a GDB command
 * **the yellow arrow points to the line that is about to be executed, but NOT YET**
 * menu buttons (press Fn to activate function keys)
   * `Continue`***F5*** - execute a block of code: from the yellow-arrow line (included) to the line (included) right before the next break point
   * `Pause`*F6* - pause the running program, the yellow arrow will then pop up to indicate where the program is now
   * `Step Over`***F10*** - execute the yellow-arrow line and only that line
   * `Step Into`***F11*** - go into what's really being executed on the yellow-arrow line
-  * `Step Out`*shift+F11* - go to what called the yellow-arrow line (can be used to go back to where you hit Step Into)
+  * `Step Out`*shift+F11* - go to what called the yellow-arrow line
   * `Restart`
   * `Stop`
 * MAKE SURE
   * the active file is the one you want to run and debug
+  * launch debug session in `main.cpp` file, NOT `main` execution file
 
 # config
 
