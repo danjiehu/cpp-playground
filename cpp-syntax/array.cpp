@@ -1,15 +1,24 @@
 // ! consider using std::<vector> which is easier to maintain and you can print much easier
 // array ref: https://www.youtube.com/watch?v=ENDaJi08jCU&list=PLlrATfBNZ98dudnM48yfGUldqGD0S4FFb&index=31
+
+/** NOTES **/
+// array elements are all the same data type
+// element size (number of bytes) of the data type is fixed
+
+// TODO: learn how to overload << to cout array
+
 #include <array>
 #include <iostream>
 
 using std::cout;
 using std::endl;
 
-// TODO: learn how to overload << to cout array
-
 int main()
 {
+    // sizeof()
+    int int_ar[5] = { 0, 1, 2, 3, 4 };
+    cout << "size of int: " << sizeof(int);
+
     // #include <array>: stack
     std::array<int, 5> m_array1;
     // alternatively:
