@@ -17,7 +17,7 @@ int main()
 {
     // sizeof()
     int int_ar[5] = { 0, 1, 2, 3, 4 };
-    cout << "size of int: " << sizeof(int);
+    cout << "size of int: " << sizeof(int) << endl;
 
     // #include <array>: stack
     std::array<int, 5> m_array1;
