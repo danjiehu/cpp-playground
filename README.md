@@ -28,13 +28,22 @@ g++ -o main class1.cpp class2.cpp class3.cpp main.cpp
 
 * use `using namespace ...` in header file
 * `using namespace std`
+* avoid using Linked Lists
 
 ### DOs
 
-```
+* std::cout & std::endl
+
+```cpp
 using std::cout;
 using std::endl;
 ```
+
+* Choosing collection type:
+
+  * Use vector `<T>` by default
+  * If want to avoid using the heap entirely and don't need to change the number of elements, use `std::array`
+  * ref: https://www.youtube.com/watch?v=TJHgp1ugKGM&t=2948s
 
 ### Naming
 
@@ -55,3 +64,5 @@ using std::endl;
 
 * clang format setup in VS code https://clang.llvm.org/docs/ClangFormat.html
 * Google CPP style guide https://google.github.io/styleguide/cppguide.html#General_Naming_Rules
+* IMPORTANT - Mordern C++, list vs. vector performance: https://www.youtube.com/watch?v=TJHgp1ugKGM&t=2948s
+* Why you should avoid Linked Lists: https://www.youtube.com/watch?v=YQs6IC-vgmo
