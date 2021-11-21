@@ -84,6 +84,15 @@ This repo is created to demostrate how to set up and utilize debugging for C++ i
     }
     ```
 
+# other
+
+```cpp
+// checking data type
+#include <typeinfo>
+...
+cout << typeid(variable).name() << endl;
+```
+
 # ref
 
 * code runner config for building multiple files https://stackoverflow.com/questions/59474537/code-runner-configuration-for-running-multiple-cpp-classes-in-vscode
