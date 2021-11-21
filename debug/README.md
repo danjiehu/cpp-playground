@@ -28,6 +28,20 @@ This repo is created to demostrate how to set up and utilize debugging for C++ i
   * the active file is the one you want to run and debug
   * launch debug session in `main.cpp` file, NOT `main` execution file
 
+# GDB commands
+
+```bash
+-exec x &int_arr #display memory address starting from int_arr
+
+-exec x/3xb &int_arr #display 3 bytes (specified by `b`) of memory, starting from int_arr, in hex (specified by `x`)
+
+-exec x/50 &int_arr #display 50 repeat count of whatever display format and unit size last used
+
+# for more information, see ref `GDB examining memory document`
+# every byte has its own memory address
+
+```
+
 # config
 
 * compile header files and multiple cpp class files with same `ctrl + opt + n` commands
@@ -80,3 +94,4 @@ This repo is created to demostrate how to set up and utilize debugging for C++ i
 * Processor Register and CPU components https://www.bbc.co.uk/bitesize/guides/z7qqmsg/revision/4
 * GDB: the GNU project debugger https://www.gnu.org/software/gdb/
 * bit, byte, 32-bit vs. 64-bit CPU, register, clock cycle, data memory bit allocation explained https://www.youtube.com/watch?v=s2aB13sOBi8
+* GDB examining memory document: https://web.mit.edu/gnu/doc/html/gdb_10.html#SEC57

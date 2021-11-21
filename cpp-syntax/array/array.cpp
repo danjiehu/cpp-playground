@@ -15,9 +15,14 @@ using std::endl;
 
 int main()
 {
-    // sizeof()
-    int int_ar[5] = { 0, 1, 2, 3, 4 };
-    cout << "size of int: " << sizeof(int) << endl;
+    // sizeof(), offset, convert hexadecimal to decimal
+    int int_ar[10] = { 0, 1, 2, 3, 4, 5, 6, 7, 8, 9 };
+    cout << "size of int: " << sizeof(int) << "bytes" << endl;
+    cout << "&(int_ar[5]): " << &(int_ar[5]) << endl;
+    //(long) cast memory address in HEX to DEC
+    cout << "memory in decimal: " << (long)&(int_ar[5]) << endl;
+    int offset = (long)&(int_ar[5]) - (long)&(int_ar[0]);
+    cout << "offset between int array element 5 and 0: " << offset << endl;
 
     // #include <array>: stack
     std::array<int, 5> m_array1;
