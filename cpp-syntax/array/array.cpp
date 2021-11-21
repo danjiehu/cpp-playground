@@ -15,16 +15,21 @@ using std::endl;
 
 int main()
 {
+    cout << " --- new --- example --- " << endl;
     // sizeof(), offset, convert hexadecimal to decimal
-    int int_ar[10] = { 0, 1, 2, 3, 4, 5, 6, 7, 8, 9 };
-    cout << "size of int: " << sizeof(int) << "bytes" << endl;
-    cout << "&(int_ar[5]): " << &(int_ar[5]) << endl;
-    //(long) cast memory address in HEX to DEC
-    cout << "memory in decimal: " << (long)&(int_ar[5]) << endl;
-    int offset = (long)&(int_ar[5]) - (long)&(int_ar[0]);
-    cout << "offset between int array element 5 and 0: " << offset << endl;
+    int int_arr[10] = { 0, 1, 2, 3, 4, 5, 6, 7, 8, 9 };
+    cout << "size of int: " << sizeof(int) << " bytes" << endl;
+    cout << "&(int_arr[5]): " << &(int_arr[5]) << endl;
+    //(long) cast memory address number from HEX to DEC measurement
+    cout << "memory in decimal: " << (long)&(int_arr[5]) << endl;
+    // offset is describing memory distance in decimal measurement
+    // ! we do this conversion because when we describe size of data type, i.e. int is 4 bytes, the measurement is in DEC
+    int offset = (long)&(int_arr[5]) - (long)&(int_arr[0]);
+    // ! offset [5]to[0] = sizeof(int)*(5-0) = 4*5 = 20
+    cout << "int_arr[0] to int_arr[5] offset is: " << offset << endl;
 
-    // #include <array>: stack
+    cout << " --- new --- example --- " << endl;
+    // using array template: #include <array>
     std::array<int, 5> m_array1;
     // alternatively:
     // std::array<int, 5> m_array1 = { 0, 1, 2, 3, 4 };
@@ -36,6 +41,7 @@ int main()
         cout << "m_array1: " << &m_array1[i] << " " << m_array1[i] << endl;
     }
 
+    cout << " --- new --- example --- " << endl;
     // raw stack array
     static const int m_array2_size = 5;
     // ! size has to be a compile-time known constant, therefore "static const int"
@@ -46,6 +52,7 @@ int main()
         cout << "m_array2: " << &m_array2[i] << " " << m_array2[i] << endl;
     }
 
+    cout << " --- new --- example --- " << endl;
     // raw heap array
     static const int m_array3_size = 5;
     int* m_array3_ptr = new int[m_array3_size];
