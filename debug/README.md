@@ -95,3 +95,4 @@ This repo is created to demostrate how to set up and utilize debugging for C++ i
 * GDB: the GNU project debugger https://www.gnu.org/software/gdb/
 * bit, byte, 32-bit vs. 64-bit CPU, register, clock cycle, data memory bit allocation explained https://www.youtube.com/watch?v=s2aB13sOBi8
 * GDB examining memory document: https://web.mit.edu/gnu/doc/html/gdb_10.html#SEC57
+* GDB x command https://visualgdb.com/gdbreference/commands/x
