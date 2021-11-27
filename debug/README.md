@@ -28,6 +28,13 @@ This repo is created to demostrate how to set up and utilize debugging for C++ i
   * the active file is the one you want to run and debug
   * launch debug session in `main.cpp` file, NOT `main` execution file
 
+# terminal commands
+## view processor file
+``` bash
+g++ main.cpp -E  #print pre-processor file to terminal
+g++ main.cpp -E -o i.txt #outpute the pre-precessor file content to a txt file in the same folder
+```
+
 # GDB commands
 
 ```bash
