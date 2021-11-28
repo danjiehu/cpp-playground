@@ -10,7 +10,7 @@
 
 void n_squared(int n)
 {
-    int n_squared;
+    int n_squared = 0;
     for (int i = 0; i < n; i++) {
         for (int j = 0; j < n; j++) {
             n_squared++;
@@ -20,9 +20,47 @@ void n_squared(int n)
     }
 }
 
-int main()
+void n_cubed(int n)
 {
-    n_squared(8); // this is a o(n^2) function
+    int n_cubed = 0;
+    for (int i = 0; i < n; i++) {
+        for (int j = 0; j < n; j++) {
+            for (int k = 0; k < n; k++) {
+                n_cubed++;
+                std::cout << i << ", " << j << ", " << k << std::endl;
+                std::cout << n_cubed << std::endl;
+            }
+        }
+    }
+}
+
+void combined(int n)
+{
+    n_squared(n);
+    n_cubed(n);
+}
+
+int main()
+
+{
+    // define the number of steps it takes to resolve the function as `steps`
+    // define the input number as `n`
+    // summarize the abstract math relation between the two as `steps = o(n?)`
+
+    n_squared(2);
+    // steps = 2^2 = n^2 = 4, \lim_{n \to ∞} n^2 = n^2 - therefore, n_squared(n) is a o(n^2) algo
+    n_cubed(2);
+    // steps = 2^3 = n^3 = 8, \lim_{n \to ∞} n^3 = n^3 - therefore, n_cubed(n) is a o(n^3) algo
+
+    combined(3);
+    // steps = 3^2 + 3^3 = n^2 + n^3 = 36
+    // ! when we evaluate algo efficiency, we are evaulating when n reaches ∞ (infinity)
+    // so what we wanna work out is a polynomial limit: \lim_{n \to ∞} n^2 + n^3
+    // because the growth rate n^3 is larger than n^2, \lim_{n \to ∞} n^2 + n^3 = n^3
+    // therefore, combined(n) is a o(n^3) algo
+
+    // ref: find the limite at infinity https://www.youtube.com/watch?v=nViVR1rImUE
+    // ref: representing the imit (mathematics) sign? https://tex.stackexchange.com/questions/74969/how-to-make-the-limit-mathematics-sign
 
     std::cin.get();
 }
