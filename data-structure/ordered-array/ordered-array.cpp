@@ -31,7 +31,6 @@ int main()
 
     int upper_index = n - 1;
     int lower_index = 0;
-
     int mid_index = (upper_index + lower_index) / 2;
 
     while (upper_index >= lower_index) {
