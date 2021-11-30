@@ -1,5 +1,9 @@
 // this cpp file documents some examples programs that has the big o of n^x
 
+// -o(1) is called constant time
+// -o(n) is called linear time
+// -o(n^2) is called polynomial time
+
 // some math prounciation examples
 // 2^16 is read "two to the sixteenth", "two to the sixteen", "two raised to the sixteenth power" or "two to the power of sixteen"
 // n^2  is read n squared, n^3 is read n cubed
