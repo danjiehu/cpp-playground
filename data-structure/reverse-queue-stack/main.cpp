@@ -6,8 +6,12 @@ std::stack<int> reverse_stack(std::stack<int> s)
 {
     std::stack<int> reversed_s;
 
-    // write code here that returns a stack whose elements are
-    // in reverse order from those in stack s
+    static const int size = s.size();
+
+    for (int i = 0; i < size; i++) {
+        reversed_s.push(s.top());
+        s.pop();
+    }
 
     return reversed_s;
 }
@@ -15,9 +19,21 @@ std::stack<int> reverse_stack(std::stack<int> s)
 std::queue<int> reverse_queue(std::queue<int> q)
 {
     std::queue<int> reversed_q;
+    static const int size = q.size();
+    int arr[size];
 
-    // write code here that returns a queue whose elements are
-    // in reverse order from those in queue q
+    // take elements from q and save it to arr
+    for (int i = 0; i < size; i++) {
+        int num = q.front();
+        arr[i] = num;
+        q.pop();
+    }
+
+    // take elements from arr in reversed order and push them to reversed_q
+    for (int i = size - 1; i > -1; i--) {
+        int num = arr[i];
+        reversed_q.push(num);
+    }
 
     return reversed_q;
 }
