@@ -15,6 +15,10 @@ template <typename T>
 class List {
 public:
     // public contains: class function declaration incl. [] operator, functions such as insertAtFront, constructor, destructor
+    void insertAtFront(const T& data);
+    // constructor
+    List()
+        : head_(nullptr) {};
 
 private:
     // private contains:  variables incl. ListNode class, ListNode head pointer (tail is nullptr), function such as search data
