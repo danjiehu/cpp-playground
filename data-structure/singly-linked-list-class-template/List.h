@@ -61,6 +61,7 @@ private:
 // ! definition
 // ! templated C++ code generally needs to be written entirely in header files, that's why we define the functions in header file, not cpp file here
 // or you can separate them into .h and .hpp file just for your own organization, for example append `#include "List.hpp"` at the end, ref: https://github.com/wadefagen/coursera/tree/master/linked-memory
+
 // 1. custom default constructor
 template <typename T>
 List<T>::List()
@@ -80,6 +81,7 @@ List<T>::~List()
     }
 }
 
+// 3. insertAtFront() function
 template <typename T>
 void List<T>::insertAtFront(const T& newValue)
 {
@@ -94,6 +96,7 @@ void List<T>::insertAtFront(const T& newValue)
     }
 }
 
+// 4. displayList() function
 template <typename T>
 void List<T>::displayList()
 {
@@ -106,3 +109,5 @@ void List<T>::displayList()
     }
     cout << "null";
 }
+
+// 5. operator[] overload
