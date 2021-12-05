@@ -1,5 +1,25 @@
 // ref-const: https://www.youtube.com/watch?v=4fJBrditnJU&list=PLlrATfBNZ98dudnM48yfGUldqGD0S4FFb&index=35
 // ref-mutable: https://www.youtube.com/watch?v=bP9z3H3cVMY&list=PLlrATfBNZ98dudnM48yfGUldqGD0S4FFb
+
+// how to interpret `const` at different positions:
+// 1. const int item_a = 3; // simple variable declaration
+// meaning:
+// I plan to assign value to this variable `item_a` once and only once, you can count on the intialization value to be item_a's value throughout the entirety of the program;
+// or, if you want to find out item_a's value, just look at its initialization is enough
+
+// 2. insertAtFront(const T& e){} // pass by function variable
+// meaning:
+// passing by reference: "I don't want you to create any copy of e, use the object value itself, for better performance; also I'm using const, so do NOT worry I will change the object accidently"
+// passing by const: "I don't want insertAtFront{} algo to change e's content in anyway, if I did by accident, please throw me a compiler error"
+// ! in short: pass by const reference ensure max performance for operations that doesn't need to make changes to the variable (incl. class type), use it for all oeprations of such nature
+
+// 3. int GetX() const {} // in class declaration ONLY
+// meaning:
+// I plan to use GetX() as a read-only function; I'm also securing future operations that wish to use GetX() is able to pass variable by const reference for max performance
+// ! use const before {} for all read-only class member function
+
+// 4. pointer related const see examples below
+
 #include <iostream>
 #include <string>
 
@@ -28,7 +48,7 @@ public:
     // *ex. 3 const-class-method
     const int* const GetY() const
     {
-        // const int*: method returns a int pointer which content can't be modified
+        // const int*: method returns a int pointer which deferenced value can't be modified
         // const: this pointer's pointed address also can't be modified
         // GetY() const{}: promise not to modify the class itself
         return m_Y;
@@ -54,7 +74,7 @@ int main()
     e1.printEntityX(e1);
 
     //*ex. 1: const-variable
-    //this is a varibale, I'm not gonna change it later
+    // this is a varibale, I'm not gonna change it later
     const int MAX_AGE = 90;
     // !error: MAX_AGE = 91;
 
