@@ -10,7 +10,7 @@
 // 2. insertAtFront(const T& e){} // pass by function variable
 // meaning:
 // passing by reference: "I don't want you to create any copy of e, use the object value itself, for better performance; also I'm using const, so do NOT worry I will change the object accidently"
-// passing by reference: "insertAtFront is not a function that will modify the parameter passed in"
+// passing by const: "I've decided that insertAtFront is not a function that will modify the parameter passed in"
 // passing by const: "I don't want insertAtFront{} algo to change e's content in anyway, if I did by accident, please throw me a compiler error"
 // ! in short: pass by const reference ensure max performance for operations that doesn't need to make changes to the variable (incl. class type), use it for all oeprations of such nature
 

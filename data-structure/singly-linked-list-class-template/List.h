@@ -111,3 +111,7 @@ void List<T>::displayList()
 }
 
 // 5. operator[] overload
+template <typename T>
+const T& List<T>::operator[](unsigned index)
+{
+}
