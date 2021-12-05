@@ -29,10 +29,10 @@ public:
     List();
     ~List();
 
-    const T& operator[](unsigned index);
     void insertAtFront(const T&);
     void displayList();
-    void appendNode(const T&);
+    const T& operator[](unsigned index);
+    void appendNode(const T&); // TODO from here
     void deleteAtFront();
     void deleteAtEnd();
     void deleteNode(const T&);
@@ -123,3 +123,5 @@ const T& List<T>::operator[](unsigned index)
 
     return curr->node_data;
 }
+
+// 6. appendNode() function
