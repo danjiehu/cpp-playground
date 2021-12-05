@@ -18,6 +18,9 @@
 
 #include <iostream>
 
+using std::cout;
+using std::endl;
+
 // ! declaration
 template <typename T>
 class List {
@@ -71,13 +74,35 @@ List<T>::~List()
     ListNode* toDelete;
     while (curr != nullptr) {
         toDelete = curr;
-        curr = curr->next; // obtained the next node pointer address before deleting current code
+        curr = curr->next_ptr; // obtained the next node pointer address before deleting current code
         delete toDelete;
         toDelete = nullptr;
     }
 }
 
 template <typename T>
-List<T>::insertAtFront(const T& newNode)
+void List<T>::insertAtFront(const T& newValue)
 {
+    ListNode* newNode = new ListNode(newValue); // create a newNode on heap
+    // newNode->node_data = newValue; // assign new value to newNode's data
+
+    if (head_ == nullptr) {
+        head_ = newNode; // assign head pointer to point to newNode, newNode by default alreday points to null, that's it
+    } else {
+        newNode->next_ptr = head_; // new node's next_ptr points to original first node
+        head_ = newNode; // reassign head point to point to new node
+    }
+}
+
+template <typename T>
+void List<T>::displayList()
+{
+    ListNode* curr = head_;
+
+    cout << "head->";
+    while (curr != nullptr) {
+        cout << curr->node_data << "->";
+        curr = curr->next_ptr;
+    }
+    cout << "null";
 }
