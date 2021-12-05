@@ -1,7 +1,13 @@
 // ref: https://www.geeksforgeeks.org/data-structures/linked-list/#singlyLinkedList
 // ref: https://github.com/wadefagen/coursera/tree/master/linked-memory
+// ref: https://github.com/gsprint23/Cpp-Crash-Course/tree/master/TemplatedLinkedListFun, https://www.youtube.com/watch?v=UD1Ingv1qbQ
 
-// summary:
+// highlights:
+// ! 1. linked list - nodes are created on heap, therefore, they must be destroyed in custom destructor
+// 2. you can use valgrind to track memory link, ref: https://valgrind.org/docs/manual/mc-manual.html#mc-manual.leaks
+// `valgrind --leak-check=full -v ./your_program`
+
+// side notes:
 // 1. class have a default private specifier, i.e.
 // class A
 // {
@@ -10,15 +16,22 @@
 
 #pragma once
 
+#include <iostream>
+
 // declaration
 template <typename T>
 class List {
 public:
     // public contains: class function declaration incl. [] operator, functions such as insertAtFront, constructor, destructor
     void insertAtFront(const T& data);
-    // constructor
+    // constructor - make sure head_is null-initialized
     List()
         : head_(nullptr) {};
+    // destructor - free the memory allocated for ListNode objects when the List is destroyed
+    ~List()
+    {
+        ListNode* thru = head_;
+    }
 
 private:
     // private contains:  variables incl. ListNode class, ListNode head pointer (tail is nullptr), function such as search data
