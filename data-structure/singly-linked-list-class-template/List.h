@@ -107,11 +107,19 @@ void List<T>::displayList()
         cout << curr->node_data << "->";
         curr = curr->next_ptr;
     }
-    cout << "null";
+    cout << "null" << endl;
 }
 
 // 5. operator[] overload
 template <typename T>
 const T& List<T>::operator[](unsigned index)
 {
+    ListNode* curr = head_;
+
+    while (index > 0 && curr != nullptr) {
+        curr = curr->next_ptr;
+        index--;
+    }
+
+    return curr->node_data;
 }
