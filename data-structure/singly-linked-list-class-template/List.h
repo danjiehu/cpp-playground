@@ -124,4 +124,16 @@ const T& List<T>::operator[](unsigned index)
     return curr->node_data;
 }
 
-// 6. appendNode() function
+// TODO 6. appendNode() function - fix bug
+template <typename T>
+void List<T>::appendNode(const T& newValue)
+{
+    ListNode* newNode = new ListNode(newValue);
+
+    ListNode* curr = head_;
+    while (curr != nullptr) {
+        curr = curr->next_ptr;
+    } // found the original last node pointer
+
+    curr->next_ptr = newNode;
+}
