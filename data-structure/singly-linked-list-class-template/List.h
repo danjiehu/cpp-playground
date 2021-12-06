@@ -26,8 +26,8 @@ template <typename T>
 class List {
 public:
     // public contains: class function declaration incl. [] operator, functions such as insertAtFront, constructor, destructor
-    List();
-    ~List();
+    List(); // done
+    ~List(); // done
 
     void insertAtFront(const T&); // done
     void displayList(); // done
