@@ -29,10 +29,11 @@ public:
     List();
     ~List();
 
-    void insertAtFront(const T&);
-    void displayList();
-    const T& operator[](unsigned index);
-    void appendNode(const T&); // TODO from here
+    void insertAtFront(const T&); // done
+    void displayList(); // done
+    unsigned size(); // done
+    const T& operator[](unsigned index); // done
+    void appendNode(const T&); // done
     void deleteAtFront();
     void deleteAtEnd();
     void deleteNode(const T&);
@@ -71,11 +72,11 @@ List<T>::List()
 template <typename T> // TODO: use valgrind to check memory leak (effectiveness of the destructor)
 List<T>::~List()
 {
-    ListNode* curr = head_;
+    ListNode* ptr = head_;
     ListNode* toDelete;
-    while (curr != nullptr) {
-        toDelete = curr;
-        curr = curr->next_ptr; // obtained the next node pointer address before deleting current code
+    while (ptr->next_ptr != nullptr) {
+        toDelete = ptr;
+        ptr = ptr->next_ptr; // obtained the next node pointer address before deleting ptrent code
         delete toDelete;
         toDelete = nullptr;
     }
@@ -100,40 +101,61 @@ void List<T>::insertAtFront(const T& newValue)
 template <typename T>
 void List<T>::displayList()
 {
-    ListNode* curr = head_;
+    ListNode* ptr = head_;
 
     cout << "head->";
-    while (curr != nullptr) {
-        cout << curr->node_data << "->";
-        curr = curr->next_ptr;
-    }
+    while (ptr != nullptr) {
+        cout << ptr->node_data << "->";
+        ptr = ptr->next_ptr;
+    };
+
     cout << "null" << endl;
 }
 
-// 5. operator[] overload
+// 5. size() function
+template <typename T>
+unsigned List<T>::size()
+{
+    unsigned size = 0;
+    ListNode* ptr = head_;
+
+    while (ptr != nullptr) {
+        ptr = ptr->next_ptr;
+        size++;
+    };
+
+    return size;
+}
+
+// 6. operator[] overload
 template <typename T>
 const T& List<T>::operator[](unsigned index)
 {
-    ListNode* curr = head_;
 
-    while (index > 0 && curr != nullptr) {
-        curr = curr->next_ptr;
+    ListNode* ptr = head_;
+
+    while (index > 0) {
+        ptr = ptr->next_ptr;
         index--;
     }
 
-    return curr->node_data;
+    return ptr->node_data;
 }
 
-// TODO 6. appendNode() function - fix bug
+// 6. appendNode() function - fix bug
 template <typename T>
 void List<T>::appendNode(const T& newValue)
 {
     ListNode* newNode = new ListNode(newValue);
+    ListNode* ptr = head_;
 
-    ListNode* curr = head_;
-    while (curr != nullptr) {
-        curr = curr->next_ptr;
+    while (ptr->next_ptr != nullptr) {
+        ptr = ptr->next_ptr;
     } // found the original last node pointer
 
-    curr->next_ptr = newNode;
+    // ! (ptr->next_ptr != nullptr) ends with `ptr->next_ptr = nullptr`, i.e. when while loop scope ends, ptr points to last node, ptr is the same value as the second to last node's next_ptr, last node content hasn't been looped over with the while loop scope {}
+    // ! (ptr != nullptr) ends with `ptr = nullptr`, i.e. when while loop scope ends, ptr is the nullptr of last node, last node content HAS been looped over inside the while loop scope {}
+    // ref: https://stackoverflow.com/questions/18835868/traversing-through-a-linked-list-whileptr-null-vs-whileptr-next-null
+
+    ptr->next_ptr = newNode;
 }
