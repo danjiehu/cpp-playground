@@ -2,6 +2,8 @@
 // ref: https://github.com/wadefagen/coursera/tree/master/linked-memory
 // ref: https://github.com/gsprint23/Cpp-Crash-Course/tree/master/TemplatedLinkedListFun, https://www.youtube.com/watch?v=UD1Ingv1qbQ
 
+// TODO: learn unique pointer and replace all heap pointer with unique pointer
+
 // highlights:
 // ! 1. linked list - nodes are created on heap, therefore, they must be destroyed in custom destructor
 // 2. you can use valgrind to track memory link, ref: https://valgrind.org/docs/manual/mc-manual.html#mc-manual.leaks
@@ -34,7 +36,7 @@ public:
     unsigned size(); // done
     const T& operator[](unsigned index); // done
     void appendNode(const T&); // done
-    void deleteAtFront();
+    void deleteAtFront(); // done
     void deleteAtEnd();
     void deleteNode(const T&);
     void search(const T&);
@@ -74,12 +76,13 @@ List<T>::~List()
 {
     ListNode* ptr = head_;
     ListNode* toDelete;
-    while (ptr->next_ptr != nullptr) {
+    while (ptr != nullptr) {
         toDelete = ptr;
         ptr = ptr->next_ptr; // obtained the next node pointer address before deleting ptrent code
         delete toDelete;
         toDelete = nullptr;
     }
+    cout << "~List() destructor called" << endl;
 }
 
 // 3. insertAtFront() function
@@ -158,4 +161,44 @@ void List<T>::appendNode(const T& newValue)
     // ref: https://stackoverflow.com/questions/18835868/traversing-through-a-linked-list-whileptr-null-vs-whileptr-next-null
 
     ptr->next_ptr = newNode;
+}
+
+// 7. deleteAtFront() function
+// TODO: check memory leak here
+template <typename T>
+void List<T>::deleteAtFront()
+{
+    if (head_ != nullptr) {
+        ListNode* newFirstNode = head_->next_ptr;
+        delete head_;
+        head_ = nullptr;
+
+        head_ = newFirstNode;
+    }
+}
+
+// 8. deleteAtEnd() function
+// TODO: test memory leak, fix bugs, why delete currnode doesn't work without prev node!!!
+template <typename T>
+void List<T>::deleteAtEnd()
+{
+    if (head_ != nullptr) {
+        // list is not empty
+        // need to traverse list, stopping at the last node
+        ListNode*& currNode = head_;
+        // ListNode* prevNode = nullptr;
+        while (currNode->next_ptr != nullptr) {
+            // prevNode = currNode;
+            currNode = currNode->next_ptr;
+        }
+        // if (prevNode == nullptr) {
+        //     // deleting at head... only one Node in the list
+        //     delete head_;
+        //     head_ = nullptr; // we now have an empty list
+        // } else {
+        delete currNode;
+        currNode = nullptr;
+        // prevNode->next_ptr = nullptr;
+        // }
+    }
 }
