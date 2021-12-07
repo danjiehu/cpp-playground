@@ -1,5 +1,7 @@
 // ref-const: https://www.youtube.com/watch?v=4fJBrditnJU&list=PLlrATfBNZ98dudnM48yfGUldqGD0S4FFb&index=35
 // ref-mutable: https://www.youtube.com/watch?v=bP9z3H3cVMY&list=PLlrATfBNZ98dudnM48yfGUldqGD0S4FFb
+// const as return type: https://www.sandordargo.com/blog/2020/11/18/when-use-const-3-return-types
+// const as paramenters: https://www.sandordargo.com/blog/2020/11/25/when-use-const-4-parameters
 
 // how to interpret `const` at different positions:
 // 1. const int item_a = 3; // simple variable declaration
