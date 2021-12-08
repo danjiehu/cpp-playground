@@ -2,6 +2,7 @@
 // ref: https://github.com/wadefagen/coursera/tree/master/linked-memory
 // ref: https://github.com/gsprint23/Cpp-Crash-Course/tree/master/TemplatedLinkedListFun, https://www.youtube.com/watch?v=UD1Ingv1qbQ
 
+// !!! in linked list, you modified ALL nodes by assessing and using the pointer stored at inside the PREVIOUS NODE, or head_ if you want to modify the first node
 // TODO: learn unique pointer and replace all heap pointer with unique pointer
 
 // highlights:
@@ -156,8 +157,11 @@ void List<T>::appendNode(const T& newValue)
         ptr = ptr->next_ptr;
     } // found the original last node pointer
 
-    // ! (ptr->next_ptr != nullptr) ends with `ptr->next_ptr = nullptr`, i.e. when while loop scope ends, ptr points to last node, ptr is the same value as the second to last node's next_ptr, last node content hasn't been looped over with the while loop scope {}
+    // ! (ptr->next_ptr != nullptr) ends with `ptr->next_ptr = nullptr`, i.e. when while loop scope ends, ptr now points to last node, ptr is the same value as the second to last node's next_ptr which points to the last node, last node content hasn't been looped over inside the while loop scope {}
     // ! (ptr != nullptr) ends with `ptr = nullptr`, i.e. when while loop scope ends, ptr is the nullptr of last node, last node content HAS been looped over inside the while loop scope {}
+    // when while loop terminates, test conditions is false, for example if test condition is (ptr != nullptr), when code ends, ptr == nullptr.
+    // !!! in linked list, you modified ALL nodes by assessing and using the pointer stored at inside the PREVIOUS NODE, or head_ if you want to modify the first node
+    // while loop flow chart: https://www.programiz.com/cpp-programming/do-while-loop
     // ref: https://stackoverflow.com/questions/18835868/traversing-through-a-linked-list-whileptr-null-vs-whileptr-next-null
 
     ptr->next_ptr = newNode;
@@ -178,27 +182,35 @@ void List<T>::deleteAtFront()
 }
 
 // 8. deleteAtEnd() function
-// TODO: test memory leak, fix bugs, why delete currnode doesn't work without prev node!!!
+// ! why segmentation fault without ptr_toPrev:
+// ! once ptr_toCurr (which is pointed to last node) is deleted, you are NOT allowed to access this address anymore with ptr_toCurr
+// ! BUT, second to last node still have this address, `ptr_toCurr` is a separate variable, setting it to null doesn't change the address stored in second to last node `next_ptr`
+// ! and you can only modify second to last node with address stored in third to last node (BECAUSE THIS IS WHAT LINKED LIST IS)
 template <typename T>
 void List<T>::deleteAtEnd()
 {
     if (head_ != nullptr) {
         // list is not empty
         // need to traverse list, stopping at the last node
-        ListNode*& currNode = head_;
-        // ListNode* prevNode = nullptr;
-        while (currNode->next_ptr != nullptr) {
-            // prevNode = currNode;
-            currNode = currNode->next_ptr;
+        ListNode* ptr_toCurr = head_;
+        ListNode* ptr_toPrev = nullptr;
+        while (ptr_toCurr->next_ptr != nullptr) { // use ptr_toCurr->next_ptr != nullptr because you need to access the pointer to last node
+            ptr_toPrev = ptr_toCurr;
+            ptr_toCurr = ptr_toCurr->next_ptr;
         }
-        // if (prevNode == nullptr) {
-        //     // deleting at head... only one Node in the list
-        //     delete head_;
-        //     head_ = nullptr; // we now have an empty list
-        // } else {
-        delete currNode;
-        currNode = nullptr;
-        // prevNode->next_ptr = nullptr;
-        // }
+        if (ptr_toPrev == nullptr) {
+            delete head_;
+            head_ = nullptr;
+        } else {
+            delete ptr_toCurr;
+            ptr_toCurr = nullptr;
+            ptr_toPrev->next_ptr = nullptr;
+        }
     }
+}
+
+// 9. void deleteNode(const T&) function
+template <typename T>
+void List<T>::deleteNode(const T&)
+{
 }

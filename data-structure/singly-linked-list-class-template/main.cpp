@@ -27,6 +27,9 @@ int main()
 
     // testing delete at end
     list.deleteAtEnd();
+    // list.deleteAtEnd();
+    // list.deleteAtEnd();
+    // list.deleteAtEnd();
     list.displayList();
 
     return 0;
