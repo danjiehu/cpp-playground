@@ -27,21 +27,6 @@ using std::endl;
 // ! declaration
 template <typename T>
 class List {
-public:
-    // public contains: class function declaration incl. [] operator, functions such as insertAtFront, constructor, destructor
-    List(); // done
-    ~List(); // done
-
-    void insertAtFront(const T&); // done
-    void displayList(); // done
-    unsigned size(); // done
-    const T& operator[](unsigned index); // done
-    void appendNode(const T&); // done
-    void deleteAtFront(); // done
-    void deleteAtEnd();
-    void deleteNode(const T&);
-    void search(const T&);
-
 private:
     // private contains:  variables incl. ListNode class, ListNode head pointer (tail is nullptr), function such as search data
     // nested class ListNode
@@ -60,6 +45,21 @@ private:
 
     // ListNode pointer type: head pointer
     ListNode* head_;
+
+public:
+    // public contains: class function declaration incl. [] operator, functions such as insertAtFront, constructor, destructor
+    List(); // done
+    ~List(); // done
+
+    void insertAtFront(const T& newValue); // done
+    void displayList(); // done
+    unsigned size(); // done
+    const T& operator[](unsigned index); // done
+    void appendNode(const T&); // done
+    void deleteAtFront(); // done
+    void deleteAtEnd();
+    ListNode* search(const T& value);
+    void deleteNode(const T& value);
 };
 
 // ! definition
@@ -209,8 +209,50 @@ void List<T>::deleteAtEnd()
     }
 }
 
-// 9. void deleteNode(const T&) function
+// 9. search function
+// find and return the ListNode (ptr to the ListNode) with searched value and `nullptr` is value is not found
 template <typename T>
-void List<T>::deleteNode(const T&)
+typename List<T>::ListNode* List<T>::search(const T& value) // TODO learn syntax: missing 'typename' prior to dependent type name 'List<T>::ListNode'
 {
+    ListNode* ptr = head_;
+    int count = 0;
+    while (ptr != nullptr) {
+        if (ptr->node_data == value) {
+            std::cout << "found node_data at index " << count << endl;
+            return ptr;
+        } else {
+            ptr = ptr->next_ptr;
+            count++;
+        }
+    }
+
+    std::cout << "no such data found" << endl;
+    return nullptr;
+}
+
+// 10. void deleteNode(const T&) function
+template <typename T>
+void List<T>::deleteNode(const T& value)
+{
+    ListNode* ptr = head_;
+    ListNode* prev_ptr = nullptr;
+    // head match
+    // end match
+    // middle match
+    while (ptr != nullptr) {
+        if (ptr->node_data == value && ptr == head_) {
+            ListNode* temp = ptr->next_ptr;
+            delete ptr;
+            ptr = nullptr;
+            head_ = temp;
+        } else if (ptr->node_data == value) {
+            ListNode* temp = ptr->next_ptr;
+            delete ptr;
+            ptr = nullptr;
+            prev_ptr->next_ptr = temp;
+        } else {
+            prev_ptr = ptr;
+            ptr = ptr->next_ptr;
+        }
+    }
 }

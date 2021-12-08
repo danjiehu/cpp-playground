@@ -32,5 +32,25 @@ int main()
     // list.deleteAtEnd();
     list.displayList();
 
+    // testing search
+    list.search(10);
+    list.search(12);
+
+    // testing delete node
+    list.appendNode(20);
+    list.insertAtFront(3);
+    list.displayList();
+
+    list.deleteNode(5);
+    list.displayList();
+    list.deleteNode(20);
+    list.displayList();
+    list.deleteNode(3);
+    list.displayList();
+    list.deleteNode(12);
+    list.displayList();
+    list.deleteNode(13);
+    list.displayList();
+
     return 0;
 }
