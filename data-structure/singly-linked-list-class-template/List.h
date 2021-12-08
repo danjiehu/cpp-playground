@@ -48,18 +48,19 @@ private:
 
 public:
     // public contains: class function declaration incl. [] operator, functions such as insertAtFront, constructor, destructor
-    List(); // done
-    ~List(); // done
+    List();
+    ~List();
 
-    void insertAtFront(const T& newValue); // done
-    void displayList(); // done
-    unsigned size(); // done
-    const T& operator[](unsigned index); // done
-    void appendNode(const T&); // done
-    void deleteAtFront(); // done
+    void insertAtFront(const T& newValue);
+    void displayList();
+    unsigned size();
+    const T& operator[](unsigned index);
+    void appendNode(const T&);
+    void deleteAtFront();
     void deleteAtEnd();
     ListNode* search(const T& value);
     void deleteNode(const T& value);
+    void insertOrdered(const T& newValue); // TODO
 };
 
 // ! definition
@@ -256,3 +257,44 @@ void List<T>::deleteNode(const T& value)
         }
     }
 }
+
+// // 11. insertOrdered()
+// template <typename T>
+// void List<T>::insertOrdered(const T& newValue)
+// {
+//     // if size = 0
+//     // if size = 1
+//     // if size > 1
+
+//     if (head_ == nullptr) {
+//         this->insertAtFront(newValue);
+//     } else if (this->size() == 1) {
+//         if (newValue <= head_->node_data) {
+//             this->insertAtFront(newValue);
+//         } else {
+//             this->appendNode(newValue);
+//         }
+//     } else {
+//         // if it's the head, push front
+//         // if it's not the head relink
+//         if (newValue <= head_->node_data) {
+//             this->insertAtFront(newValue);
+//         } else if (newValue > tail_->data) {
+//             this->pushBack(newValue);
+//         } else {
+//             Node* pre_thru = head_;
+//             Node* thru = head_->next;
+//             while (thru != nullptr) {
+//                 if (newValue <= thru->data) {
+//                     Node* nodeToInsert = new Node(newValue);
+//                     nodeToInsert->prev = pre_thru;
+//                     nodeToInsert->next = thru;
+//                     size_++;
+//                 } else {
+//                     pre_thru = thru;
+//                     thru = thru->next;
+//                 }
+//             }
+//         }
+//     }
+// }

@@ -43,14 +43,17 @@ int main()
 
     list.deleteNode(5);
     list.displayList();
-    list.deleteNode(20);
-    list.displayList();
-    list.deleteNode(3);
-    list.displayList();
-    list.deleteNode(12);
-    list.displayList();
-    list.deleteNode(13);
-    list.displayList();
+    // list.deleteNode(20);
+    // list.displayList();
+    // list.deleteNode(3);
+    // list.displayList();
+    // list.deleteNode(12);
+    // list.displayList();
+    // list.deleteNode(13);
+    // list.displayList();
+
+    // testing insertOrdered
+    // list.insertOrdered(2);
 
     return 0;
 }
