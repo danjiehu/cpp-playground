@@ -4,6 +4,7 @@
 
 // !!! in linked list, you modified ALL nodes by assessing and using the pointer stored at inside the PREVIOUS NODE, or head_ if you want to modify the first node
 // TODO: learn unique pointer and replace all heap pointer with unique pointer
+// TODO: ListNode class change to `T& node_data;` doesn't work, what's the different from tree?
 
 // highlights:
 // ! 1. linked list - nodes are created on heap, therefore, they must be destroyed in custom destructor
