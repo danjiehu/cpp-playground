@@ -62,6 +62,8 @@ using std::endl;
 
 ## References
 
+* how to use const in c++ https://www.sandordargo.com/blog/2020/11/04/when-use-const-1-functions-local-variables
+* c++ best practices by jason turner https://www.sandordargo.com/blog/2021/06/05/cpp-best-practices-by-jason-turner
 * clang format setup in VS code https://clang.llvm.org/docs/ClangFormat.html
 * Google CPP style guide https://google.github.io/styleguide/cppguide.html#General_Naming_Rules
 * IMPORTANT - Mordern C++, list vs. vector performance: https://www.youtube.com/watch?v=TJHgp1ugKGM&t=2948s
