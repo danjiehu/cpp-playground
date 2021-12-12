@@ -1,4 +1,8 @@
+// ref: https://github.com/wadefagen/coursera/blob/master/binary-tree-traversals/ValueBinaryTree.h
 #pragma once
+
+// this version has binary tree is value based
+// it stores value copies of items, rather than referecnes (`T data` rather than `T& data`)
 
 template <typename T>
 class BinaryTree {

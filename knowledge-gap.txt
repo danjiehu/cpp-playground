@@ -1,0 +1,30 @@
+// tree
+- recursive solution to tree traversal
+- build tree structure and learn: search(find), insert, remove
+- big o notation on binary search tree average and worse, sorted array and sorted list
+
+// class
+- visibility: what to declare in public and what to declare in private class definition
+- visibility: friend function / visibility example
+- copy constructors
+- inheritance more example with constructor: uiuc
+- constructor and destructor
+
+// pointer & references
+- unique pointer
+- pass by value, pointer reference
+- return type: pointer by reference?
+- pass by references use cases examples
+
+// memory
+- the delete keyword
+- tracking memory leak
+- watch cherno explains heap and stack
+
+// unclassified
+- malloc
+- linker and compiler
+- static keyword
+- watch cherno explain copy constructor and pass value by const reference (normal methods)
+- the use of `*this` keyword
+- learn more about gitignore
