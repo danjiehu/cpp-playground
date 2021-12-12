@@ -15,6 +15,8 @@
 // passing by const: "I've decided that insertAtFront is not a function that will modify the parameter passed in"
 // passing by const: "I don't want insertAtFront{} algo to change e's content in anyway, if I did by accident, please throw me a compiler error"
 // ! in short: pass by const reference ensure max performance for operations that doesn't need to make changes to the variable (incl. class type), use it for all oeprations of such nature
+// ! use pass by reference especially if you could potentially have a complex data type as argument, like a user-defined type or a vector; see ref.cpp for examples
+// ! use reference to give you the flexibility just in case you ever need to pass large & complex data through a variable, it will have better performance
 
 // 3. int GetX() const {} // in class declaration ONLY
 // meaning:

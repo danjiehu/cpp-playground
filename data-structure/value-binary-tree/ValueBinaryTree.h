@@ -7,22 +7,26 @@
 template <typename T>
 class BinaryTree {
 public:
-    // constructor;
-    // destructor;
-
-private:
-    // nested class all is public
+    // todo: why declare treenode as public?
     class TreeNode {
     public:
-        T& data;
+        T data;
         TreeNode* left;
         TreeNode* right;
 
-        TreeNode(T& data)
-            : data(data)
+        // initializing a treenode
+        // ! constructor makes a copy of "dataArgument" and initialize "data" with its value
+        // int data;
+        // const int& dataArgument = 8;
+        //
+        // T data = dataArgument
+        TreeNode(const T& dataArgument)
+            : data(dataArgument)
             , left(nullptr)
             , right(nullptr) {};
     }
 
     TreeNode* root_;
+
+private:
 };

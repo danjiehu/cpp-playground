@@ -1,3 +1,6 @@
+// a reference means, the variable is going to take on the address that assigned to it
+// int& a = b; // a is going to take on the address of b, and you can now refer to the address as `a` too.
+
 #include <iostream>
 
 using std::cout;
@@ -23,6 +26,64 @@ int main()
     cout << "pointer's dereferenced value: " << *ptr << endl;
     // accessing reference value, it really is the same as var
     cout << "reference value: " << ref << endl;
+
+    // 2. mimicing pass by const reference
+    // ! all examples in 2 and 3, data and dataArgument have different address
+    // example 2.1
+    int data; // mimicing class member variable
+    const int& dataArgument = 8;
+    // dataArgument = 9; error: variable 'dataArgument' declared const here
+    data = dataArgument;
+    cout << data << endl; // 8
+    cout << dataArgument << endl; //  8
+    cout << &data << endl; // 0xA
+    cout << &dataArgument << endl; // ! 0xB, two different address
+
+    // example 2.2 pass by const reference gives you the flexibility to pass in an argument with an existing variable, and it doesn't create a copy of that variable
+    int data_2;
+    int x = 9;
+    const int& dataArgument_2 = x;
+    data_2 = dataArgument_2;
+    cout << x << endl; // 9
+    cout << &x << endl; // 0xA
+    cout << data_2 << endl; // 9
+    cout << &data_2 << endl; // output 0xB
+    cout << dataArgument_2 << endl; // output 9
+    cout << &dataArgument_2 << endl; // ! output 0xA, x and dataArgument are same address, different address with data_2
+
+    // 3. mimicing pass by value
+    // example 3.1
+    int m_data;
+    const int dataArgu = 100;
+    m_data = dataArgu;
+    cout << m_data << "\n" // 100
+         << &m_data << endl; // 0xA
+    cout << dataArgu << "\n" // 100
+         << &dataArgu << endl; // ! 0xB, two different address, exactly the same as exmaple 2.1
+
+    // example 3.2
+    int m_data2;
+    int y = 101;
+    const int dataArgu_2 = y;
+    m_data2 = dataArgu_2;
+    cout << y << "\n" // 101
+         << &y << "\n" // 0xA
+         << dataArgu_2 << "\n" // 101
+         << &dataArgu_2 << "\n" // ! 0xB, different from example 2.2, y and data_argument are two DIFFERENT variables
+         << m_data2 << "\n" // 101
+         << &m_data2 // 0xC
+         << endl;
+
+    // 4. mimicing declaring class member as reference, see real implementaion at binary search tree demo
+    // !!! examples in 4, data and dataArgument have the SAME address - that's difference with declaring class member as reference type
+    const int& dataArg = 200;
+    const int& mData = dataArg;
+    // if mData a reference, it has to be the same reference type as dataArg
+    // for example, if `int& mData = datArg; `, error: binding reference of type 'int' to value of type 'const int' drops 'const' qualifier
+    cout << dataArg << "\n" // 200
+         << &dataArg << "\n" // 0xA
+         << mData << "\n" // 200
+         << &mData << endl; // !!! 0xA, now the member data and data argument passed in via constructor have the same address
 
     std::cin.get();
 }
