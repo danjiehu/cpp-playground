@@ -1,13 +1,25 @@
 #include <iostream>
 
+using std::cout;
+using std::endl;
+
 int main()
 {
-    int* ptr;
-    int var = 7;
-    int foo = 21;
-    ptr = &var;
-    ptr = &foo;
-    int& ref = var;
+    // 1. basic usage
+    int* ptr; // created stack variable, address is 0xA, name is ptr, value is uninialized, it's ready to take on an address that store the value of an integer
+    int var = 7; // created stack variable, address is 0xB, name is var, value is 7
+    int foo = 21; // created stack variable, address is 0xC, name is var, value is 7
+    ptr = &var; // assign 0xB to be the value of ptr
+    ptr = &foo; // assign 0xC to be the value of ptr
+    int& ref = var; // created stack variable, address is 0xB, name is ref (also is var), value is 7 (it gave 0xB a different name)
+    // notice how 0xA is not really used anywhere
+
+    // accessing pointer's value
+    cout << "pointer's value: " << ptr << endl;
+    // accessing the value at the address where pointer is pointing to
+    cout << "pointer's dereferenced value: " << *ptr << endl;
+    // accessing reference value, it really is the same as var
+    cout << "reference value: " << ref << endl;
 
     std::cin.get();
 }
