@@ -43,12 +43,14 @@ int main()
     int data_2;
     int x = 9;
     const int& dataArgument_2 = x;
+    // dataArgument_2 = 10; // error: cannot assign to variable 'dataArgument_2' with const-qualified type 'const int &'
+    x = 10; // but you can do this, which is weird but it is what it is
     data_2 = dataArgument_2;
-    cout << x << endl; // 9
+    cout << x << endl; // 10
     cout << &x << endl; // 0xA
-    cout << data_2 << endl; // 9
+    cout << data_2 << endl; // 10
     cout << &data_2 << endl; // output 0xB
-    cout << dataArgument_2 << endl; // output 9
+    cout << dataArgument_2 << endl; // output 10
     cout << &dataArgument_2 << endl; // ! output 0xA, x and dataArgument are same address, different address with data_2
 
     // 3. mimicing pass by value
