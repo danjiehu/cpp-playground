@@ -24,8 +24,8 @@ public:
             , right(nullptr) {};
     };
 
-    ValueBinaryTree(); // default constructor
-    ValueBinaryTree(const std::vector<T>& contents); // custom constructor
+    ValueBinaryTree();
+    ValueBinaryTree(const std::vector<T>& contents);
     ValueBinaryTree(const ValueBinaryTree& other); // copy constructor
     ~ValueBinaryTree(); // desctructor;
 
@@ -37,6 +37,10 @@ public:
     void preOrder(TreeNode* cur);
     void inOrder(TreeNode* cur);
     void postOrder(TreeNode* cur);
+
+    //  TreeNode* unsafe_getRootPtr() {
+    //   return root_;
+    // todo: what's the point of this function?
 
 private:
     TreeNode* root_;
