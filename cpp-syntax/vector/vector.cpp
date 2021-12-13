@@ -1,8 +1,11 @@
 /*
-    this demo contains: 
+    this demo contains:
     1. how to create std::vector & basic use of .push_back() and .size()
     2. how to print all vector content and those of custmized types
+
+    basic usage: std::vector<int> v = { 7, 5, 16, 8 };
 */
+
 #include <iostream>
 // #include <typeinfo>
 #include <vector>
@@ -47,8 +50,22 @@ std::ostream& operator<<(std::ostream& stream, const std::vector<Cube>& other)
 
 int main()
 {
-    // below - vector of cubes
-    std::vector<Cube> cube_stack;
+    // 1. simple int vector
+    // ref: https://www.geeksforgeeks.org/vector-in-cpp-stl/
+    // ref: https://en.cppreference.com/w/cpp/container/vector
+    std::vector<int> v_int = { 7, 5, 16, 8 };
+    v_int.push_back(25);
+    v_int.push_back(13);
+    cout << v_int.front() << endl;
+    cout << "v_int = { ";
+    for (int n : v_int) {
+        cout << n << " ";
+    } // range based for loop https://en.cppreference.com/w/cpp/language/range-for
+    cout << "}; \n";
+
+    // 2. below - vector of cubes
+    std::vector<Cube>
+        cube_stack;
     Cube c1(1);
     Cube c2(2);
     Cube c3(3);
@@ -75,7 +92,7 @@ int main()
         }
     }
 
-    //below - printing cube stack exmaple
+    // below - printing cube stack exmaple
     cout << "cube stack is: " << cube_stack << endl;
 
     // below - simple vector int example
