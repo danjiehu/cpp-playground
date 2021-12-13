@@ -24,12 +24,12 @@ public:
             , right(nullptr) {};
     };
 
-    ValueBinaryTree();
+    ValueBinaryTree(); // done
+    void createCompelteTree(const std::vector<T>& contents);
     ValueBinaryTree(const std::vector<T>& contents);
     ValueBinaryTree(const ValueBinaryTree& other); // copy constructor
     ~ValueBinaryTree(); // desctructor;
 
-    void createCompelteTree(const std::vector<T>& contents);
     void destroySubtree(TreeNode* subtreeRootPtr); // this function deletes the subtree rooted at the specified node; this is a recursive function.
     void destroyWholeTree();
 
