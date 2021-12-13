@@ -45,3 +45,5 @@ public:
 private:
     TreeNode* root_;
 };
+
+#include "ValueBinaryTree.hpp"
