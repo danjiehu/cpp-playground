@@ -1,5 +1,6 @@
 // this implementation of the tree is simply written with Node class, without tree class
-// functions incl. 1. insert nodes 2. print tree 3. search node 4. cout nodes 5. computeHeight of node
+// functions incl. 1. insert nodes 2. print tree 3. search node 4. count nodes 5. computeHeight of node
+// ! the height of a single node is 0, NOT -1; -1 is when subtree doesn't exist, it's used when calculating balanced factor
 
 // TODO 1.  can pass root node as const reference?
 
@@ -17,7 +18,7 @@ struct Node {
         , right(nullptr) {};
 
     Node(int data)
-        : height(1)
+        : height(-1)
         , left(nullptr)
         , right(nullptr)
         , data(data) {};
@@ -84,7 +85,58 @@ bool Search(Node*& root, const int& data)
     }
 }
 
-//
+// 4. count nodes function // done
+// 4.1 input: root pointer by reference; output: the number of nodes in the tree
+// 4.2 base case: if root ptr is a nullptr(false), return 0; if root ptr exists and both left and right is nullptr, return 1;
+// 4.3 calculation should be sum = node count in subleft tree + node count in subright tree
+// 4.4 traverse and recursion
+// 4.5 test recursion & modify
+int Count(Node*& root)
+{
+    if (!root) {
+        return 0;
+    }
+    if (root && root->left == nullptr && root->right == nullptr) {
+        return 1;
+    }
+
+    int count = 1 + Count(root->left) + Count(root->right);
+    return count;
+}
+
+// 5. computeHeight of node
+// 3.1 input: tree root node by reference; couting node height and update node property height, void return
+// 3.2 base case: if root ptr is nullptr, return; node class constructor doesn't set height to -1;
+// 3.3 test if 3.2 base case is complete
+void computeHeight(Node*& root)
+{
+    // base case 1
+    if (!root) {
+        return;
+    }
+    // base case 2
+    if (root->left == nullptr && root->right == nullptr) {
+        root->height = 0; // if you can change node class, then this is not needed because you can set height in constructor
+        return;
+    }
+
+    // recursion
+    if (root->left == nullptr) {
+        computeHeight(root->right);
+        root->height = root->right->height + 1;
+    } else if (root->right == nullptr) {
+        computeHeight(root->left);
+        root->height = root->left->height + 1;
+    } else {
+        computeHeight(root->left);
+        computeHeight(root->right);
+        if (root->left->height >= root->right->height) {
+            root->height = root->left->height + 1;
+        } else {
+            root->height = root->right->height + 1;
+        }
+    }
+}
 
 int main()
 {
@@ -111,6 +163,13 @@ int main()
     std::cout << "search result: " << Search(n, 15) << std::endl; // return 1
     std::cout << "search result: " << Search(n, 16) << std::endl; // return 1
     std::cout << "search result: " << Search(n, 100) << std::endl; // return 0
+
+    // testing count node
+    std::cout << "node count: " << Count(n) << std::endl; // return 8
+
+    // testing computeHeight
+    computeHeight(n);
+    printTree(n);
 
     // MUST delete head node
     // ! The Node destructor will recursively delete its children nodes.
