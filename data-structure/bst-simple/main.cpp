@@ -1,5 +1,7 @@
 // this implementation of the tree is simply written with Node class, without tree class
 // functions incl. 1. insert nodes 2. print tree 3. search node 4. count nodes 5. computeHeight of node
+// 6. countNullChildrenRecursive 7. countNullChildrenIterative
+
 // ! the height of a single node is 0, NOT -1; -1 is when subtree doesn't exist, it's used when calculating balanced factor
 
 // TODO 1.  can pass root node as const reference?
@@ -105,9 +107,9 @@ int Count(Node*& root)
 }
 
 // 5. computeHeight of node
-// 3.1 input: tree root node by reference; couting node height and update node property height, void return
-// 3.2 base case: if root ptr is nullptr, return; node class constructor doesn't set height to -1;
-// 3.3 test if 3.2 base case is complete
+// 5.1 input: tree root node by reference; couting node height and update node property height, void return
+// 5.2 base case: if root ptr is nullptr, return; node class constructor doesn't set height to -1;
+// 5.3 test if 3.2 base case is complete
 void computeHeight(Node*& root)
 {
     // base case 1
@@ -136,6 +138,19 @@ void computeHeight(Node*& root)
             root->height = root->right->height + 1;
         }
     }
+}
+
+// TODO 6. countNullChildrenRecursive
+// 6.1 input: root node; output: the count of this tree's nullChildren
+int countNullChildrenRecursive(Node* root)
+{
+    return 0;
+}
+
+// TODO 7. countNullChildrenRecursive
+int countNullChildrenIterative(Node* root)
+{
+    return 0;
 }
 
 int main()
@@ -170,6 +185,14 @@ int main()
     // testing computeHeight
     computeHeight(n);
     printTree(n);
+    std::cout << std::endl;
+
+    // testing countNullChildrenRecursive
+    std::cout << countNullChildrenRecursive(n) << std::endl; // expected output:
+    std::cout << countNullChildrenIterative(n) << std::endl; // expected output:
+    Insert(n, 24);
+    std::cout << countNullChildrenRecursive(n) << std::endl; // expected output:
+    std::cout << countNullChildrenIterative(n) << std::endl; // expected output:
 
     // MUST delete head node
     // ! The Node destructor will recursively delete its children nodes.
