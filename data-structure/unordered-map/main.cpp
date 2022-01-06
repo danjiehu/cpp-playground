@@ -7,6 +7,26 @@
 #include <iostream>
 #include <unordered_map> // for std::unordered_map
 #include <utility> // for std::pair
+#include <vector>
+
+// for example SIX
+using StringIntMap = std::unordered_map<std::string, int>;
+using StringVec = std::vector<std::string>;
+StringIntMap makeWordCounts(const StringVec& words)
+{
+    StringIntMap wordcount_map;
+
+    for (auto word : words) {
+        if (wordcount_map.count(word)) {
+            // if word already exist as a key
+            wordcount_map.at(word) += 1;
+        } else {
+            // if word doesn't exist
+            wordcount_map[word] = 1;
+        }
+    }
+    return wordcount_map;
+}
 
 int main()
 {
@@ -17,6 +37,7 @@ int main()
     umap["someKey"] = 10;
     umap["Alice"] = 42;
     umap["anotherKey"] = 23;
+    umap["Alice"] = 43; // changed the previous key value
     // [] can only be used on non-const instances of a map, it returns a direct reference to the mapped value item that it found AND if the key item doesn’t exist, it will be created as soon as you refer to it with [], and initialized with some default value.
     // check count() & at() if you don't wanna accidently modify the hash table
 
@@ -124,18 +145,13 @@ int main()
     // ====== end of example: map erase() ======
 
     // ====== start of example: map operations with vector ======
-    const& std::vector<std::string> AliceVec = { "where", "is", "alice", "wonderland", "alice", "is", "great" };
-    using StringIntMap = std::unordered_map<std::string, int>;
+    const std::vector<std::string>& AliceVec = { "where", "is", "alice", "wonderland", "alice", "is", "great" };
 
-    StringIntMap makeWordCounts(const StringVec& words)
-    {
-        StringIntMap wordcount_map;
-
-        return wordcount_map;
+    StringIntMap AliceMap = makeWordCounts(AliceVec);
+    for (auto x : AliceMap) {
+        std::cout << x.first << " " << x.second << std::endl;
     }
-
-    StringIntMap(AliceVec);
-    // expected output {{"where",1},{"is",2},{"alice",2},{"wonderland",1},{"great",1}};
+    // expected output {{"where",1},{"is",2},{"alice",2},{"wonderland",1},{"great",1}}; order doesn't matter
 
     std::cout << "EXAMPLE SIX END" << std::endl;
     // ====== end of example: map operations with vector ======
