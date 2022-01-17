@@ -65,6 +65,14 @@ int main()
     std::pair<std::string, int> anotherPair = { "sevens", 777 };
     std::cout << anotherPair.first << " " << anotherPair.second << std::endl;
 
+    // ways to make a pair summarize
+    // in pract we usually shorten std::pair<int, int> with IntPair, the syntax for that is,
+    // using IntPair = std::pair<int,int>;
+    std::pair<int, int> intPair1 = std::pair<int, int>(1, 2);
+    std::pair<int, int> intPair2 = std::make_pair(1, 2);
+    auto intPair3 = std::pair<int, int>(1, 2);
+    std::pair<int, int> intPair4 = { 1, 2 };
+
     // Some implementations of std::unordered_map actually uses std::pair internally for each key-value pair, and so some of the advanced helper functions of std::unordered_map directly deal with pairs. You can even initialize a map as a list of pairs:
     std::unordered_map<int, int> lookupTable = { { 1, 10 }, { 2, 20 }, { 3, 30 } };
     std::cout << lookupTable[2] << std::endl;
