@@ -3,13 +3,6 @@
 // 1. demostrate how to do bfs and dfs on a graph data structure
 // 2. dfs: with stack, go deep fast
 // 3. bfs: with queue, explore data level by level
-// 4. using a hash table to build the same graph presented in the Youtube Video; where key is the vertex, and value is the vertex's adjacent edges.
-// graph visual:
-//    (G)--------(B)--------
-//     |          |        |
-//    (F)---(E)--(A)------(C)
-//     |      \   /        ｜
-//    (H)------(D)----------
 
 // * dfs - depth first search English code *
 // need: `stack` to store vertex to process in order; `seen table` to store processed vertex.
@@ -32,8 +25,59 @@
 // space complexity
 
 #include <iostream>
+#include <stack>
+#include <unordered_map>
+#include <unordered_set>
+#include <utility>
+#include <vector>
+
+using IntPair = std::pair<int, int>;
+
+struct Graph {
+    int num_edges;
+    int num_nodes;
+    std::vector<int> vertexList; // using int to represent vertex
+    std::vector<IntPair> edgeList; // using int pair to represent each edge
+
+    // print the graph by printing each edge
+    void print()
+    {
+        for (auto edge : edgeList) {
+            std::cout << edge.first << " " << edge.second << std::endl;
+        }
+    }
+
+    void dfs(int starter_vertex) {};
+    void bfs(int starter_vertex) {};
+};
 
 int main()
 {
+    Graph g;
+    // recreating this graph
+    // (0)-(1)-(2)-(3)-(4)-(5)-(6)-(7)
+    //              |               |
+    //               ---------------
+    g.num_edges = 8;
+    g.num_nodes = 8;
+    // g's vertex list
+    for (int i = 0; i < g.num_nodes; i++) {
+        g.vertexList.push_back(i);
+    }
+    // g's edge list
+    g.edgeList.push_back({ 0, 1 });
+    g.edgeList.push_back({ 1, 2 });
+    g.edgeList.push_back({ 2, 3 });
+    g.edgeList.push_back({ 3, 4 });
+    g.edgeList.push_back({ 4, 5 });
+    g.edgeList.push_back({ 5, 6 });
+    g.edgeList.push_back({ 6, 7 });
+    g.edgeList.push_back({ 3, 7 });
+    // g.print();
+    // end of creating the graph
+
+    g.dfs(1);
+    g.bfs(1);
+
     return 0;
 }
