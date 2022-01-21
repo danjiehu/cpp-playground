@@ -32,16 +32,6 @@
 // space complexity
 
 #include <iostream>
-#include <unordered_map>
-#include <unordered_set>
-#include <utility> // for std::pair
-
-struct Graph {
-    // using std::pair<char, char> = charPair;
-    // using neighborSet = std::unorder_set<charPair>;
-    // std::unordered_map<char, neighborSet> adjacencyMap;
-    // TODO: learn how to use customized type i.e. pairs on hash table in order to create a adjacency map
-};
 
 int main()
 {
