@@ -25,6 +25,7 @@
 // space complexity
 
 #include <iostream>
+#include <queue>
 #include <stack>
 #include <unordered_map>
 #include <unordered_set>
@@ -47,9 +48,69 @@ struct Graph {
         }
     }
 
-    void dfs(int starter_vertex) {};
-    void bfs(int starter_vertex) {};
+    void dfs(int starter_vertex);
+    void bfs(int starter_vertex);
 };
+
+void Graph::dfs(int starter_vertex)
+{
+    std::stack<int> node_to_traverse;
+    std::unordered_set<int> seen;
+
+    node_to_traverse.push(starter_vertex);
+
+    std::cout << "depth first traversal: ";
+    while (!node_to_traverse.empty()) {
+
+        int curr = node_to_traverse.top();
+        node_to_traverse.pop();
+
+        if (!seen.count(curr)) {
+            seen.insert(curr);
+            std::cout << curr << " ";
+
+            for (auto edge : edgeList) {
+                if (edge.first == curr) {
+                    node_to_traverse.push(edge.second);
+                } else if (edge.second == curr) {
+                    node_to_traverse.push(edge.first);
+                }
+            }
+        }
+    }
+    std::cout << std::endl;
+}
+
+void Graph::bfs(int starter_vertex)
+{
+    std::queue<int> node_to_traverse;
+    std::unordered_set<int> seen;
+
+    node_to_traverse.push(starter_vertex);
+
+    std::cout << "breadth first traversal: ";
+    while (!node_to_traverse.empty()) {
+
+        int curr = node_to_traverse.front();
+        node_to_traverse.pop();
+
+        if (!seen.count(curr)) {
+            // if not seen, add it to seen then process it
+            seen.insert(curr);
+            std::cout << curr << " ";
+
+            // if not seen, add its children
+            for (auto edge : edgeList) {
+                if (edge.first == curr) {
+                    node_to_traverse.push(edge.second);
+                } else if (edge.second == curr) {
+                    node_to_traverse.push(edge.first);
+                }
+            }
+        }
+    }
+    std::cout << std::endl;
+}
 
 int main()
 {
@@ -76,8 +137,8 @@ int main()
     // g.print();
     // end of creating the graph
 
-    g.dfs(1);
-    g.bfs(1);
+    g.dfs(3);
+    g.bfs(3);
 
     return 0;
 }
