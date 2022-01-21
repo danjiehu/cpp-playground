@@ -11,8 +11,25 @@
 //     |      \   /        ｜
 //    (H)------(D)----------
 
-// * bfs - breath first search English code *
 // * dfs - depth first search English code *
+// need: `stack` to store vertex to process in order; `seen table` to store processed vertex.
+// function input: starter vertex and the graph to traverse.
+// function purpose: traverse each vertex of the graph exactly once and do something with it.
+// 1. declare a stack and a seen hash table for later use
+// 2. push starter vertex to stack;
+// 3. while stack is NOT empty, pop the front vertex of the stack and this is the vertex to process now
+//  3.1 examine if the vertex should be processed by checking if it's in the seen table.
+//  3.2 IF it is in the seen table, skip it.
+//  3.3 IF it is NOT in the seen table, process the vertex AND add all of the vertex's children to stack
+// 4. add the vertex to seen hash table; now repeat the procedure on the next vertex on stack.
+// Time complexity: O(n+m)
+// Space complexity: O(n)
+// n is vertex count; m is edge count.
+
+// * bfs - breath first search English code *
+//
+// time complexity
+// space complexity
 
 #include <iostream>
 #include <unordered_map>
