@@ -1,5 +1,6 @@
 // * demo purpose *
 // ref: https://www.youtube.com/watch?v=TIbUeeksXcI
+// ref: https://www.coursera.org/learn/cs-fundamentals-3/lecture/UbneL/4-1-2-graphs-bfs-analysis
 // 1. demostrate how to do bfs and dfs on a graph data structure
 // 2. dfs: with stack, go deep fast
 // 3. bfs: with queue, explore data level by level
@@ -20,8 +21,7 @@
 // n is vertex count; m is edge count.
 
 // * bfs - breath first search English code *
-//
-// time complexity
+// time complexity: O(M+N)
 // space complexity
 
 #include <iostream>
