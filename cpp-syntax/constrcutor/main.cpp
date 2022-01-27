@@ -1,9 +1,24 @@
 // demo contains
 // 1. examples of copy constructor
 // 2. examples of assignment operator
+// 3. syntax and uses (as remark) of destructor
 // in general, copy constructor is called when the object doesn't exist before (therefore needs to be constructed)
 // assignment operator is called when the object already exist/constructed, but we are changing its attributes by copying from another same-type object
 // once an object is created, it can never be constructed again; that's why we're replacing the values with assignment operator. the automatic assignment operator will suffice in most case.
+
+// destructor:
+// syntax: ~Cube();
+// ! syntax rules:
+// 1. a class member function 2. has the name of the class preceded by a tilde 3. all destructors have to have NO argument and NO return type
+// Q: When is destructor called?
+// A: The destructor is a class member function that is lastly called in a class instance's lifecycle. An automatic default destructor is provided if no other destructor is defined.
+// If the object is created on stack memory, the destructor is called as soon as the function returns.
+// If the object is created on the heap memory, the destructor is called ONLY when delete keyword is used.
+// And all destructors are never called directly by programmers. Instead, when it's called is identified and added to your code by your compiler at compile time, so that they will be called in that defined order at runtime.
+// Q: What does a destructor do?
+// A: The automatic default destructor calles the destructor of the other member variables. That's it.
+// Q: When do you usually need to define a custom destructor?
+// A: To have customized control over what happens at the end of a class lifecycle. For example, if we need to do logging or clean up heap memory allocation with delete keyword during the lifetime of the class.
 
 #include <iostream>
 
@@ -14,6 +29,8 @@ public:
 
     Cube(const Cube& obj); // custom copy constructor
     // ! must remeber if function is prepared to be defined later, don't add {} yet!!
+
+    ~Cube(); // custom destructor
 
     Cube& operator=(const Cube& obj);
     // custom assignment operator a public function of the class that has a return type of Cube&
