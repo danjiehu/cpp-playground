@@ -66,13 +66,40 @@ void Queue::enQueue(int value)
 }
 
 // start of deQueue
+void Queue::deQueue()
+{
+    // if queue is empty
+    // if queue is only one element: need to update both rear and front
+    // if queue has 1+ elements: just need to update front
+    if (front == -1) {
+        cout << "cannot dequeue because the queue is already empty" << endl;
+    } else if (front == rear) {
+        int d_value = arr[front];
+        front = -1;
+        rear = -1;
+        element_cout--;
+        cout << "dequeued " << d_value << endl;
+    } else {
+        int d_value = arr[front];
+        if (front + 1 == size) {
+            front = 0;
+        } else {
+            front = front + 1;
+        }
+        element_cout--;
+        cout << "dequeued " << d_value << endl;
+    }
+}
 
 // start of displayQueue
 void Queue::displayQueue()
 {
+    cout << "displaying queue: ";
     // queue is empty
-    // queue is not empty, rear >= front
-    // queue is not empty, rear < front
+    // queue has only one element
+    // queue has 2+ element, rear >= front
+    // queue has 2+ element, rear < front
+
     if (front == -1) {
         cout << "queue is empty" << endl;
     } else if (rear >= front) {
@@ -80,13 +107,15 @@ void Queue::displayQueue()
             cout << arr[i] << " ";
         }
     } else {
-        for (int i = front; i < size + 1; i++) {
+        for (int i = front; i < size; i++) {
             cout << arr[i] << " ";
         }
         for (int i = 0; i < rear + 1; i++) {
             cout << arr[i] << " ";
         }
     }
+
+    cout << endl;
 };
 
 int main()
@@ -95,9 +124,25 @@ int main()
     q.enQueue(20);
     q.enQueue(21);
     q.enQueue(22);
-
     q.enQueue(23); // already full
     q.displayQueue();
+
+    q.deQueue();
+    q.deQueue();
+    q.deQueue();
+    q.deQueue(); // queue is empty
+    q.displayQueue();
+
+    q.enQueue(30);
+    q.enQueue(31);
+    q.enQueue(32);
+    q.displayQueue(); // expected: 30 31 32
+    q.deQueue();
+    q.deQueue();
+    q.displayQueue(); // expected: 32
+    q.enQueue(33);
+    q.enQueue(34);
+    q.displayQueue(); // expected: 32 33 34
 
     return 0;
 }
