@@ -3,6 +3,7 @@ using std::cout;
 using std::endl;
 // using heap array to demostrate circular queue
 // why we use circular queue: https://www.youtube.com/watch?v=V6X6yXvT9uI
+// an simpler way of finding the rear index is rear = (rear+1)%size
 // Circular Queues offer a efficient way to store FIFO data with a maximum size
 
 // if the class is declared using the keyword class then its members are private by default;
