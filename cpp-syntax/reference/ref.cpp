@@ -1,13 +1,23 @@
 // a reference means, the variable is going to take on the address that assigned to it
 // int& a = b; // a is going to take on the address of b, and you can now refer to the address as `a` too.
+// ! syntax: accessing the value stored at the reference variable address does NOT need to dereference it
+// for example,
+// int b = 10;
+// int& a = b; // this is the equivalent of int* a = &b;
+// std::cout << a << std::endl; //10 //accessing stored value is *b (dereferenced b)
 
 #include <iostream>
-
 using std::cout;
 using std::endl;
 
 int main()
 {
+    int b = 10;
+    int& a = b; // this is the equivalent of int* a = &b;
+    std::cout << "value of reference a: " << a << std::endl; // 10 //accessing stored value is *b (dereferenced b)
+    std::cout << "value of address of b: " << &b << std::endl;
+    std::cout << "value of address of a: " << &a << std::endl;
+
     // 1. basic usage
     int* ptr; // created stack variable, address is 0xA, name is ptr, value is uninialized, it's ready to take on an address that store the value of an integer
     int var = 7; // created stack variable, address is 0xB, name is var, value is 7
