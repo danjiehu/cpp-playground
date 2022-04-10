@@ -30,7 +30,7 @@ public:
     Cube(const Cube& obj); // custom copy constructor
     // ! must remeber if function is prepared to be defined later, don't add {} yet!!
 
-    ~Cube(); // custom destructor
+    // ~Cube(); // custom destructor
 
     Cube& operator=(const Cube& obj);
     // custom assignment operator a public function of the class that has a return type of Cube&
