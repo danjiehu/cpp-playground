@@ -42,7 +42,8 @@ private:
     double length_;
 };
 
-// custom default constructor
+// custom constructor
+// ! it doesn't have input paramter but this is NOT a default constructor because it is being defined, default constructor is what is called when there's no any constructor defined
 Cube::Cube()
 {
     length_ = 1;
