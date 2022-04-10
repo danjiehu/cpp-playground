@@ -45,10 +45,13 @@ void Insert(Node*& root, const int& data)
     if (root == nullptr) {
         Node* newNode = new Node(data);
         root = newNode;
+        return;
     } else if (data <= root->data) {
         Insert(root->left, data);
+        return;
     } else {
         Insert(root->right, data);
+        return;
     }
 }
 
