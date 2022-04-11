@@ -1,5 +1,5 @@
 // inheritance is a way for us to extend an existing class by providing new functionalities
-
+// for more, check /practices/inheritance-practice
 #include <iostream>
 
 class Entity {
