@@ -3,6 +3,11 @@
 // const as return type: https://www.sandordargo.com/blog/2020/11/18/when-use-const-3-return-types
 // const as paramenters: https://www.sandordargo.com/blog/2020/11/25/when-use-const-4-parameters
 
+// why return const variable:
+//  It's important to use const when returning an object by value if you want to prevent its use as an lvalue. The reason const has no meaning when you're returning a built-in type by value is that the compiler already prevents it from being an lvalue (because it's always a value, and not a variable). An lvalue (locator value) represents an object that occupies some identifiable location in memory (i.e. has an address). rvlaue is the opposite;
+// example:
+// 4 = 2; // error: lvalue required as left operand of assignment
+
 // how to interpret `const` at different positions:
 // 1. const int item_a = 3; // simple variable declaration
 // meaning:
