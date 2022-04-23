@@ -2,11 +2,13 @@
 // 1. hash table single insertion, batch insertion with vector, search, deletion, check if key exist without creating new key
 // ! If you iterate over a std::unordered_map (keeping in mind that there is no particular order to the items), the individual items are the key-value pairs themselves.
 // 2. Pairs: different ways to make pairs, iterate over pairs in a hash table
+// 3. Some implementations of std::unordered_map actually uses std::pair internally for each key-value pair, and so some of the advanced helper functions of std::unordered_map directly deal with pairs. You can even initialize a map as a list of pairs:
 // ref: https://www.geeksforgeeks.org/unordered_map-in-cpp-stl/
+// ref: https://d3c33hcgiwev3.cloudfront.net/CwKOcm1XEem7ixL_6m9HFg_fc12014d278f4b268cbbfbc34b3e2601_UnorderedMap_project_instructions_v20190502d.pdf?Expires=1650844800&Signature=cP~4YsfMvinyNJNKB48TL5qy6gyNjQVy2~E-v1HtzarwSdadbC8rqJ62X-gVBXMVaOFfyCUtToI32Nufm-ft7CC~EfnjS13zU4gnx5kKndbQIjUPzfNAdHQLE3MqMGuiBALgOD26v06GT8dNPW5cRdDGrD037xZR2OrzLntZxqw_&Key-Pair-Id=APKAJLTNE6QMUY6HBC5A
 
 #include <iostream>
 #include <unordered_map> // for std::unordered_map
-#include <utility> // for std::pair
+#include <utility> // for std::pair //You may forget to do that sometimes because it is included along with certain other STL headers (like <unordered_map>), but pairs are also useful on their own.
 #include <vector>
 
 // for example SIX
