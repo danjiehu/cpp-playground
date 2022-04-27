@@ -1,3 +1,11 @@
+// ** important notes: **//
+// ! there are two situations when a function variable outlives an function,
+// 1. the paramter passed is reference type, this can only be seen in the function definition
+// 2. the variable is created inside the function body as a heap allocated variable; this can be seen inside function body definition with new keyword.
+// the use of each should be clear by now:
+// 1. if the function intention is to create an object anew i.e. it doesn't exist by the of function execution, and the object needs to outlive the function, use heap allocation
+// 2. if the object to outlive is a function parameter and the object has ALREADY been created, use reference
+
 #include <iostream>
 // reference has nothing to do with heap allocation, or the use of a pointer,
 // distinguish their differences below
