@@ -57,7 +57,7 @@ public:
 
 int main()
 {
-    // ex-1: template in function
+    // ex-1: template in function, no association with class
     std::cout << max(10, 20) << std::endl; // template type is defined when the function is called automatically
     std::cout << max<double>(10.4, 20.12) << std::endl; // template type is defined when the function is called with an signed type
 
