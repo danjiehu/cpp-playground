@@ -62,6 +62,7 @@ int main()
     base.printVar(); // expect: 30.
     derived.print(); // expect: I am dervied.
     derived.printVar(); // expect: 40;
+    // std::cout << derived.var << std::endl; // ! error: base::var is inaccessible. because derived class cannot call on base class's private members directly
     derived.printdVar(); // expect: 40;
 
     return 0;
