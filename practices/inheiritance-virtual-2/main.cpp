@@ -3,7 +3,6 @@
 // 2. by not explicitly initializing a base class constructor, c++ will use default constructor to construct base class (it could be custom defaut)
 // 3. you cannot define a base class function for the first time inside derived class
 // 4. how to explicitly refer to a base class same-name function by adding namespace:: in front when inside the derived class
-// test
 #include <iostream>
 
 class flower {
